@@ -7,7 +7,11 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -15,9 +19,28 @@ public class MyListUtilTest {
 
 	
 	static MyListUtil cl;
+	static DateTime s;
+	static DateTime e;
+	static DateTime fine;
+	static Duration d;
+	
 	@BeforeClass
-	public void inizializza() {
+	public static void inizializza() {
 		 cl= new MyListUtil();
+		 
+	}
+	
+	@Before
+	public void start()
+	{
+		s= new DateTime(2004,11,20,0,0);
+	}
+	
+	@After
+	public void end()
+	{
+		e= new DateTime(2005,11,20,0,0);
+		d= new Duration(s,e);
 	}
 	
 	@Test
@@ -33,6 +56,12 @@ public class MyListUtilTest {
 	{
 		assertFalse(cl.ordinaDecrescente(new ArrayList<Integer>()));
 		assertTrue(cl.ordinaDecrescente((ArrayList<Integer>) Arrays.asList(5,40,32,223,111)));
+	}
+	
+	@AfterClass
+	public static void fineTest()
+	{
+		fine= s.plus(d);
 	}
 	
 }
