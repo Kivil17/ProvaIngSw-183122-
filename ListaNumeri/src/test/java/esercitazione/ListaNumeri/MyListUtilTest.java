@@ -27,13 +27,14 @@ public class MyListUtilTest {
 	@BeforeClass
 	public static void inizializza() {
 		 cl= new MyListUtil();
-		 
+		 System.out.println("inizio:"+s);
 	}
 	
 	@Before
 	public void start()
 	{
 		s= new DateTime(2004,11,20,0,0);
+		
 	}
 	
 	@After
@@ -62,6 +63,7 @@ public class MyListUtilTest {
 	public static void fineTest()
 	{
 		fine= s.plus(d);
+		System.out.println("fine:"+fine);
 	}
 	
 }
